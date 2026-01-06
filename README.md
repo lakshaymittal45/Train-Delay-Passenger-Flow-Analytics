@@ -1,66 +1,61 @@
 # Train-Delay-Passenger-Flow-Analytics
-<h1>🚆 Train Delay & Passenger Flow Analytics (SQL + Python)</h1>
 
-<p><strong>End-to-end Data Analyst Project using MySQL + Python (Pandas/Matplotlib)</strong></p>
+<p><strong>End-to-end Data Analyst project using MySQL + Python (Pandas/Matplotlib/SQLAlchemy)</strong></p>
 
-<p>This project analyzes real-world railway delay data to uncover:</p>
+<p>This project analyzes real-world railway delay data to identify:</p>
 <ul>
   <li>Most delayed trains and stations</li>
   <li>Punctuality performance</li>
-  <li>Cancellation patterns</li>
-  <li>Significant-delay risk</li>
-  <li>Station-wise performance leaderboard</li>
+  <li>Cancellation & significant delay risk</li>
+  <li>Station performance leaderboard</li>
 </ul>
 
 <hr>
 
 <h2>🧰 Tech Stack</h2>
 <ul>
-  <li><strong>SQL:</strong> MySQL</li>
-  <li><strong>Python:</strong> Pandas, Matplotlib, SQLAlchemy</li>
-  <li>Jupyter Notebook / VS Code</li>
+  <li><strong>Database:</strong> MySQL</li>
+  <li><strong>Languages:</strong> Python, SQL</li>
+  <li><strong>Libraries:</strong> Pandas, Matplotlib, SQLAlchemy, python-dotenv</li>
+  <li>Jupyter Notebook or VS Code</li>
 </ul>
 
 <hr>
 
 <h2>📊 Dataset</h2>
 
-<p>Real Indian train delay dataset containing the following fields:</p>
+<p>Real train delay dataset with fields:</p>
 
 <table>
 <thead>
-<tr>
-<th>Column</th>
-<th>Description</th>
-</tr>
+<tr><th>Column</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>train_number</td><td>Train ID number</td></tr>
+<tr><td>train_number</td><td>Train number</td></tr>
 <tr><td>train_name</td><td>Name of the train</td></tr>
 <tr><td>station_code</td><td>Station short code</td></tr>
-<tr><td>station_name</td><td>Full station name</td></tr>
+<tr><td>station_name</td><td>Station name</td></tr>
 <tr><td>average_delay_minutes</td><td>Average delay (minutes)</td></tr>
-<tr><td>pct_right_time</td><td>% of on-time arrivals</td></tr>
-<tr><td>pct_slight_delay</td><td>% of slight delays</td></tr>
-<tr><td>pct_significant_delay</td><td>% of major delays</td></tr>
-<tr><td>pct_cancelled_unknown</td><td>% cancellations</td></tr>
-<tr><td>scraped_at</td><td>Data scraped timestamp</td></tr>
-<tr><td>source_url</td><td>Original source link</td></tr>
+<tr><td>pct_right_time</td><td>Right-time percentage</td></tr>
+<tr><td>pct_slight_delay</td><td>Slight delay percentage</td></tr>
+<tr><td>pct_significant_delay</td><td>Significant delay percentage</td></tr>
+<tr><td>pct_cancelled_unknown</td><td>Cancellation percentage</td></tr>
+<tr><td>scraped_at</td><td>Data collection timestamp</td></tr>
+<tr><td>source_url</td><td>Original dataset reference</td></tr>
 </tbody>
 </table>
 
-<p><strong>Table name in MySQL:</strong> <code>real_train_delays</code></p>
+<p><strong>Table used:</strong> <code>real_train_delays</code></p>
 
 <hr>
 
 <h2>🎯 Project Objectives</h2>
-
 <ul>
-  <li>Perform exploratory SQL analysis</li>
-  <li>Identify high-delay trains and stations</li>
-  <li>Build SQL summary views</li>
-  <li>Create Python visualizations</li>
-  <li>Demonstrate end-to-end data analytics skills</li>
+  <li>Perform SQL-based exploratory analysis</li>
+  <li>Identify delay-prone trains and stations</li>
+  <li>Build analytical SQL views</li>
+  <li>Visualize results using Python</li>
+  <li>Demonstrate complete data analyst workflow</li>
 </ul>
 
 <hr>
@@ -68,47 +63,67 @@
 <h2>🗂 Project Structure</h2>
 
 <pre>
-train-delay-analytics/
- ├── README.html
+Train-Delay-Analytics/
+ ├── README.md
  ├── train_analysis.sql
  ├── analysis.ipynb
  ├── delay_visuals.py
  ├── dataset.csv
+ └── requirements.txt
 </pre>
 
 <hr>
 
-<h2>🛠️ Setup Instructions</h2>
+<h2>🔐 Environment Variables (.env)</h2>
 
-<h3>1️⃣ Create MySQL Database</h3>
+<p>This project uses a <code>.env</code> file to keep database passwords hidden.</p>
 
+<pre>
+DB_USER=root
+DB_PASS=your_password
+DB_NAME=train_analysis
+DB_HOST=localhost
+DB_PORT=3306
+</pre>
+
+<p><strong>Note:</strong> <code>.env</code> is excluded using <code>.gitignore</code> and must NOT be pushed to GitHub.</p>
+
+<hr>
+
+<h2>🚀 How to Run Locally</h2>
+
+<ol>
+<li>Clone the repository</li>
+<pre>git clone https://github.com/YOUR-USERNAME/Train-Delay-Passenger-Flow-Analytics.git</pre>
+
+<li>Open project folder</li>
+<pre>cd Train-Delay-Passenger-Flow-Analytics</pre>
+
+<li>Create the database in MySQL</li>
 <pre>
 CREATE DATABASE train_analysis;
 USE train_analysis;
 </pre>
 
-<h3>2️⃣ Create Table</h3>
-<p>(Already included in SQL file)</p>
+<li>Create table using provided SQL script</li>
 
-<h3>3️⃣ Import Dataset</h3>
-<p>In MySQL Workbench:</p>
-<ol>
-<li>Right-click table</li>
-<li>Select <strong>Table Data Import Wizard</strong></li>
-<li>Upload CSV file</li>
+<li>Import dataset using MySQL Workbench
+<ul>
+<li>Right-click table → <strong>Table Data Import Wizard</strong></li>
+</ul>
+</li>
+
+<li>Create <code>.env</code> file (format shown above)</li>
+
+<li>Install Python requirements</li>
+<pre>pip install -r requirements.txt</pre>
+
+<li>Run notebook or Python script</li>
 </ol>
-
-<h3>4️⃣ Connect Python to MySQL</h3>
-
-<pre>
-engine = create_engine(
- "mysql+mysqlconnector://root:YOURPASSWORD@localhost/train_analysis"
-)
-</pre>
 
 <hr>
 
-<h2>📊 Key SQL Queries</h2>
+<h2>📊 Core SQL Analysis Performed</h2>
 
 <h3>🔥 Top 10 Most Delayed Trains</h3>
 <pre>
@@ -145,10 +160,10 @@ LIMIT 10;
 <h2>📈 Python Visualizations</h2>
 
 <ul>
-<li>Delay distribution histogram</li>
-<li>Worst stations bar chart</li>
-<li>Top delayed trains bar chart</li>
+<li>Delay distribution</li>
+<li>Top delayed trains</li>
 <li>Punctuality vs delay scatter plot</li>
+<li>Worst station delays</li>
 </ul>
 
 <pre>
@@ -157,15 +172,25 @@ df["average_delay_minutes"].hist(bins=40)
 
 <hr>
 
+<h2>🛡 Security Notes</h2>
+
+<ul>
+<li>Passwords are never committed</li>
+<li>.env is ignored using .gitignore</li>
+<li>Use non-root DB user for production</li>
+</ul>
+
+<hr>
+
 <h2>🧑‍💻 Skills Demonstrated</h2>
 
 <ul>
 <li>SQL data modeling and querying</li>
-<li>Data cleaning & aggregation</li>
-<li>Python-based analysis</li>
-<li>Database connectivity (SQLAlchemy)</li>
-<li>Data visualization & storytelling</li>
-<li>Handling large real-world datasets</li>
+<li>Joins, grouping, aggregation, ranking</li>
+<li>Python data analysis</li>
+<li>SQL-Python connectivity (SQLAlchemy)</li>
+<li>Visualization and storytelling</li>
+<li>Git & GitHub best practices</li>
 </ul>
 
 <hr>
@@ -173,26 +198,25 @@ df["average_delay_minutes"].hist(bins=40)
 <h2>🏁 Results Summary</h2>
 
 <ul>
-<li>Identified most delayed trains & stations</li>
-<li>Measured network punctuality performance</li>
-<li>Highlighted cancellation-prone trains</li>
-<li>Visualized delay distribution</li>
+<li>Identified most delayed trains and stations</li>
+<li>Measured network punctuality</li>
+<li>Detected cancellation-prone trains</li>
+<li>Visualized delay patterns</li>
 </ul>
 
 <hr>
 
-<h2>🚀 Future Improvements</h2>
+<h2>🚀 Future Enhancements</h2>
 
 <ul>
-<li>Machine learning delay prediction model</li>
+<li>Machine learning delay prediction</li>
+<li>Time-series forecasting</li>
 <li>Power BI / Tableau dashboard</li>
-<li>Geospatial heatmap visualization</li>
-<li>Real-time streaming analytics</li>
-<li>Streamlit web application</li>
+<li>Interactive Streamlit web app</li>
+<li>Geospatial heatmaps</li>
 </ul>
 
 <hr>
 
 <h2>👤 Author</h2>
-
 <p><strong>Lakshay Mittal</strong><br>
